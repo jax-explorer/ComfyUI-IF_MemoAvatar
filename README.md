@@ -3,8 +3,9 @@
 1. fix runtime error
 2. Automatic downloads are being fix....(WIP)
 3. There are also some parameter tuning issues, under normal development. (WIP)
+4. Optimize compatibility with different images
 
-online run: 
+online run: https://www.comfyonline.app/explore/791e2d71-eaaf-48da-8f99-9b4f7d657ff2
 
 
 ====================================================================
