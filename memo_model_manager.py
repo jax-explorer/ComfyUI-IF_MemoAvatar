@@ -153,7 +153,7 @@ class MemoModelManager:
             "memo_base": self.memo_dir,
             "face_models": self.face_models_path,
             "vocal_separator": os.path.join(self.vocal_dir, "Kim_Vocal_2.onnx"),
-            "wav2vec": self.wav2vec_dir,
+            "wav2vec": self.wav2vec_path,
             "emotion2vec": os.path.join(self.emotion2vec_dir, "emotion2vec_plus_large"),
             "vae": self.vae_path
         }
