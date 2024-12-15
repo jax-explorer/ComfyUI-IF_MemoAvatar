@@ -232,7 +232,7 @@ class IF_MemoAvatar:
             video_path = os.path.join(output_dir, video_name)
 
             tensor_to_video(video_frames, video_path, input_audio_path, fps=fps)
-            return (output_dir, f"✅ Video saved as {video_name}")
+            return (video_path, f"✅ Video saved as {video_name}")
 
         except Exception as e:
             import traceback
