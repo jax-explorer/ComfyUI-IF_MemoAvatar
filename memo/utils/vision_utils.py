@@ -78,7 +78,11 @@ def preprocess_image(face_analysis_model, image_path, image_size):
             key=lambda x: (x["bbox"][2] - x["bbox"][0]) * (x["bbox"][3] - x["bbox"][1]),
             reverse=True,
         )
-        face_emb = faces_sorted[0]["embedding"]
+        if "embedding" not in faces_sorted[0]:
+            logger.warning("The detected face does not have an 'embedding'. Using a zero vector.")
+            face_emb = np.zeros(512)
+        else:
+            face_emb = faces_sorted[0]["embedding"]
 
     # Convert face embedding to a PyTorch tensor
     face_emb = face_emb.reshape(1, -1)
