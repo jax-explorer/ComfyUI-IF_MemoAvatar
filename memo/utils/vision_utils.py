@@ -45,7 +45,7 @@ def preprocess_image(face_analysis_model, image_path, image_size):
     """Preprocess image for MEMO pipeline"""
     # Modify face analysis initialization
     face_analysis = FaceAnalysis(
-        name="buffalo_l",
+        name="",
         root=os.path.dirname(face_analysis_model),  # Use parent directory
         providers=['CUDAExecutionProvider', 'CPUExecutionProvider']
     )
