@@ -97,36 +97,7 @@ class IF_MemoAvatar:
                 image = Image.fromarray((image * 255).astype(np.uint8))
                 image.save(temp_image)
                 
-                # Set up InsightFace environment
-                face_root = os.path.dirname(self.paths["face_models"])
-                os.environ["INSIGHTFACE_HOME"] = face_root
-                
-                # Create buffalo_l symlink structure if it doesn't exist
-                buffalo_dir = os.path.join(face_root, "models", "buffalo_l")
-                os.makedirs(os.path.dirname(buffalo_dir), exist_ok=True)
-                
-                if not os.path.exists(buffalo_dir):
-                    # Create symlinks to our existing models
-                    os.makedirs(buffalo_dir, exist_ok=True)
-                    model_mapping = {
-                        "1k3d68.onnx": "1k3d68.onnx",
-                        "2d106det.onnx": "2d106det.onnx",
-                        "genderage.onnx": "genderage.onnx",
-                        "glintr100.onnx": "glintr100.onnx",
-                        "scrfd_10g_bnkps.onnx": "det_10g.onnx"  # Note the name change
-                    }
-                    
-                    for src_name, dst_name in model_mapping.items():
-                        src_path = os.path.join(self.paths["face_models"], src_name)
-                        dst_path = os.path.join(buffalo_dir, dst_name)
-                        if os.path.exists(src_path) and not os.path.exists(dst_path):
-                            if hasattr(os, 'symlink'):
-                                os.symlink(src_path, dst_path)
-                            else:
-                                # On Windows without admin rights, copy instead
-                                import shutil
-                                shutil.copy2(src_path, dst_path)
-                
+                print(f"face_models path: {self.paths["face_models"]}")
                 # Process image with our models
                 pixel_values, face_emb = preprocess_image(
                     face_analysis_model=self.paths["face_models"],
