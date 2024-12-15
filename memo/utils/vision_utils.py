@@ -46,7 +46,7 @@ def preprocess_image(face_analysis_model, image_path, image_size):
     # Modify face analysis initialization
     face_analysis = FaceAnalysis(
         name="",
-        root=os.path.dirname(face_analysis_model),  # Use parent directory
+        root=face_analysis_model,  # Use parent directory
         providers=['CUDAExecutionProvider', 'CPUExecutionProvider']
     )
     face_analysis.prepare(ctx_id=0, det_size=(640, 640))
