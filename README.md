@@ -1,3 +1,14 @@
+# Migration from original github
+
+1. fix runtime error
+2. Automatic downloads are being fix....(WIP)
+3. There are also some parameter tuning issues, under normal development. (WIP)
+
+online run: 
+
+
+====================================================================
+
 # ComfyUI-IF_MemoAvatar
 Memory-Guided Diffusion for Expressive Talking Video Generation
 
