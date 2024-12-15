@@ -149,11 +149,12 @@ class MemoModelManager:
 
     def get_model_paths(self):
         """Return dictionary of model paths"""
+        wav2vec_path = os.path.join(self.wav2vec_dir, "facebook", "wav2vec2-base-960h")
         return {
             "memo_base": self.memo_dir,
             "face_models": self.face_models_path,
             "vocal_separator": os.path.join(self.vocal_dir, "Kim_Vocal_2.onnx"),
-            "wav2vec": self.wav2vec_path,
+            "wav2vec": wav2vec_path,
             "emotion2vec": os.path.join(self.emotion2vec_dir, "emotion2vec_plus_large"),
             "vae": self.vae_path
         }
