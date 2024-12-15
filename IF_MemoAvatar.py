@@ -96,8 +96,8 @@ class IF_MemoAvatar:
                     image = image[0]
                 image = Image.fromarray((image * 255).astype(np.uint8))
                 image.save(temp_image)
-                
-                print(f"face_models path: {self.paths["face_models"]}")
+                face_models_path = self.paths["face_models"]
+                print(f"face_models path: {face_models_path}")
                 # Process image with our models
                 pixel_values, face_emb = preprocess_image(
                     face_analysis_model=self.paths["face_models"],
